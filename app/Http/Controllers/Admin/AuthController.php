@@ -15,11 +15,10 @@ class AuthController extends Controller
 
     public function userLogin(Request $request){
         $this->validate($request, [
-            'email' => 'bail|required',
-            'password' => 'bail|required'
+            'email' => 'bail|required'
         ]);
         //if (Auth::attempt(['email' => $request->email, 'password'=> $request->password])){
-        if (Auth::attempt(['email' => $request->email, 'password'=> $request->password])){
+        if (Auth::attempt(['email' => $request->email])){
         
             if (Auth::user()->role_id == 1){
                 return redirect(route('admin.dashboard'));
