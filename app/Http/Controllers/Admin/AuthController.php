@@ -18,7 +18,7 @@ class AuthController extends Controller
             'email' => 'bail|required'
         ]);
         //if (Auth::attempt(['email' => $request->email, 'password'=> $request->password])){
-        if (Auth::attempt(['email' => $request->email])){
+        if (Auth::attempt(['email' => $request->email, 'password'=> ''])){
         
             if (Auth::user()->role_id == 1){
                 return redirect(route('admin.dashboard'));
